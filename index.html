@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+      <link href="//db.onlinewebfonts.com/c/5a7f8e143dbda0b26952bc287ad05cc4?family=Monument+Extended+Light" rel="stylesheet" type="text/css"/>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Landing Page Design - Codegrid</title>
+        <link rel="stylesheet" href="style.css" />
+        <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+        <link
+            href="https://fonts.googleapis.com/css?family=Cinzel&display=swap"
+            rel="stylesheet"
+        />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+        <!-- AnimeJS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+        <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>Awesome Hover Effect + Animated Cursor | Codegrid</title>
+        
+    </head>
+    <body>
+        <div class="loader">
+            <marquee direction="right" scrollamount="10">Discogs</marquee>
+            <marquee direction="left" scrollamount="30">Super Responsable</marquee>
+            <marquee direction="right" scrollamount="20">Contrast</marquee>
+            <marquee direction="" scrollamount="40">Trinité sur Wax</marquee>
+            <marquee direction="" scrollamount="40">Gigi</marquee>
+            <div class="intro">
+                <h1 class="intro-title">Book</h1>
+            </div>
+        </div>
+
+    
+    <script src="script.js"></script>
+        
+         <div class="nav-wrapper">
+            <nav>
+                  <a href="index.html" class="hover-this"><span>Home</span></a>
+                  <a href="Mes-projets.html" class="hover-this"><span>Projets</span></a>
+                  <a href="Histoire.html" class="hover-this"><span>Histoire</span></a>
+                  <a href="Contact.html" class="hover-this"><span>Contact</span></a>
+                  <div class="cursor"></div>
+            </nav>
+      </div>
+
+<script>
+
+(function () {
+
+      const link = document.querySelectorAll('nav > .hover-this');
+      const cursor = document.querySelector('.cursor');
+
+      const animateit = function (e) {
+            const span = this.querySelector('span');
+            const { offsetX: x, offsetY: y } = e,
+            { offsetWidth: width, offsetHeight: height } = this,
+
+            move = 25,
+            xMove = x / width * (move * 2) - move,
+            yMove = y / height * (move * 2) - move;
+
+            span.style.transform = `translate(${xMove}px, ${yMove}px)`;
+
+            if (e.type === 'mouseleave') span.style.transform = '';
+      };
+
+      const editCursor = e => {
+            const { clientX: x, clientY: y } = e;
+            cursor.style.left = x + 'px';
+            cursor.style.top = y + 'px';
+      };
+
+      link.forEach(b => b.addEventListener('mousemove', animateit));
+      link.forEach(b => b.addEventListener('mouseleave', animateit));
+      window.addEventListener('mousemove', editCursor);
+
+})();
+
+</script>
+        
+        </body>
+</html>

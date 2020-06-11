@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <link rel="stylesheet" href="Mes-projets.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+        <link href="//db.onlinewebfonts.com/c/5a7f8e143dbda0b26952bc287ad05cc4?family=Monument+Extended+Light" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        
+        
+
+        <nav>
+            <a href="index.html"><div class="logo"><h4>Romain Sallé de Chou</h4></div></a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="lien-menu">Home</a></li>
+                <li><a href="Mes-projets.html"class="lien-menu" id="projets">Projects</a></li>
+                <li><a href="Histoire.html" class="lien-menu">Histoire</a></li>
+                <li><a href="Contact.html" class="lien-menu">Contact</a></li>
+            </ul>
+        </nav>
+        
+    <div style="display: flex; justify-content: center; flex-wrap: wrap;">
+        <div>
+            <h1 class="superresponsable">Super <br>Responsable</h1>
+            <div class="cursor"></div>
+            <div class="cursor-follower"></div>
+            <div id="wrapper">
+                <div class="portfolio-item">
+                    <div href="Eco-responsable.html" class="portfolio-thumb">
+                        <a href="Eco-responsable.html"><img src="logos/appsuperresp.png" alt="" /></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <h1 class="discogs">Discogs</h1>
+            <div class="cursor"></div>
+            <div class="cursor-follower"></div>
+            <div id="wrapper">
+                <div class="portfolio-item">
+                    <div class="portfolio-thumb">
+                        <a href="Discogs.html"><img src="logos/Discogs.png" alt="romain-discogs" /></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    
+     
+        <div>
+            <h1 class="tsw">Trinité sur Wax</h1>
+            <div class="cursor"></div>
+            <div class="cursor-follower"></div>
+            <div id="wrapper">
+                <div class="portfolio-item">
+                    <div class="portfolio-thumb">
+                        <a href="tsw.html"><img src="logos/tsw.png" alt="" /></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div>
+            <h1 class="contrast">Contrast</h1>
+            <div class="cursor"></div>
+            <div class="cursor-follower"></div>
+            <div id="wrapper">
+                <div class="portfolio-item">
+                    <div class="portfolio-thumb">
+                        <a href="contrast.html"><img src="logos/contrast.png" alt="" /></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div>
+            <h1 class="gigi">Gigi</h1>
+            <div class="cursor"></div>
+            <div class="cursor-follower"></div>
+            <div id="wrapper">
+                <div class="portfolio-item">
+                    <div class="portfolio-thumb">
+                        <a href="gigi.html"><img src="logos/gigi.png" alt="gigi"/></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+        
+        <script>
+            var cursor = $(".cursor"),
+                follower = $(".cursor-follower");
+
+            var posX = 0,
+                posY = 0,
+                mouseX = 0,
+                mouseY = 0;
+
+            TweenMax.to({}, 0.016, {
+                repeat: -1,
+                onRepeat: function() {
+                    posX += (mouseX - posX) / 9;
+                    posY += (mouseY - posY) / 9;
+
+                    TweenMax.set(follower, {
+                        css: {
+                            left: posX - 20,
+                            top: posY - 20
+                        }
+                    });
+
+                    TweenMax.set(cursor, {
+                        css: {
+                            left: mouseX,
+                            top: mouseY
+                        }
+                    });
+                }
+            });
+
+            $(document).on("mousemove", function(e) {
+                mouseX = e.pageX;
+                mouseY = e.pageY;
+            });
+
+            $(".portfolio-item img").on("mouseenter", function() {
+                cursor.addClass("active");
+                follower.addClass("active");
+            });
+
+            $(".portfolio-item img").on("mouseleave", function() {
+                cursor.removeClass("active");
+                follower.removeClass("active");
+            });
+        </script>
+    
+    </body>
+</html>
